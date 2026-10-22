@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -19,6 +19,15 @@ export function LoginForm({ next, linkError }: { next: string; linkError?: boole
   const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(linkError ? t('auth.linkInvalid') : null)
   const [magicSent, setMagicSent] = useState(false)
+
+  // Convite enviado pelo painel do Supabase volta para a Site URL com o token no #hash;
+  // o middleware manda para /login (o hash é preservado). Encaminha para o callback.
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash.includes('access_token=') || hash.includes('error_description=')) {
+      window.location.replace(`/auth/callback${hash}`)
+    }
+  }, [])
 
   async function signInWithPassword(e: React.FormEvent) {
     e.preventDefault()

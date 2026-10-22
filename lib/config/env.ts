@@ -10,7 +10,14 @@ const publicSchema = z.object({
   NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
 })
 
-export const publicEnv = publicSchema.parse({
+function parseOrExplain<T extends z.ZodType>(schema: T, values: Record<string, unknown>): z.infer<T> {
+  const result = schema.safeParse(values)
+  if (result.success) return result.data
+  const vars = [...new Set(result.error.issues.map((i) => String(i.path[0])))].join(', ')
+  throw new Error(`Variáveis de ambiente ausentes ou inválidas: ${vars}. Veja .env.example.`)
+}
+
+export const publicEnv = parseOrExplain(publicSchema, {
   NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
   NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || undefined,
@@ -30,7 +37,7 @@ const serverSchema = z.object({
 /** Só chamar no servidor. Lança se faltar variável obrigatória. */
 export function serverEnv() {
   if (typeof window !== 'undefined') throw new Error('serverEnv() chamado no browser')
-  return serverSchema.parse({
+  return parseOrExplain(serverSchema, {
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
     RESEND_API_KEY: process.env.RESEND_API_KEY || undefined,
     EMAIL_FROM: process.env.EMAIL_FROM || undefined,

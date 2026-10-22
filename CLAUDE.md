@@ -42,9 +42,9 @@ Se ao chegar no M5 a pasta `/samples/ads/` estiver vazia: **parar e pedir os arq
 
 - **Next.js** (App Router, Server Components, Server Actions, Route Handlers) + **TypeScript estrito**
 - **Tailwind** + **shadcn/ui** + `next-themes` (claro/escuro) · **TanStack Table** · **React Hook Form + Zod**
-- **Supabase:** Postgres com RLS em **todas** as tabelas, Auth (só convite), Storage, Vault; extensões `pg_cron`, `pg_trgm`, `pgmq`. Projeto hospedado: `Cerco` (ref `nvxkhictstezzakhnyec`).
+- **Supabase:** Postgres com RLS em **todas** as tabelas, Auth (só convite), Storage, Vault; extensões `pg_cron`, `pg_trgm`, `pgmq`. Projeto hospedado: `cerco-sp` (ref `dxvnksukbmizvuxenjwz`, região sa-east-1). O antigo `Cerco` (us-east-1) está pausado e vazio.
 - **Vercel** (deploy + Cron) · **Resend** (e-mail transacional) · **PostHog** (analytics) · **Sentry** (erros)
-- **IA:** `@anthropic-ai/sdk`. Modelos via `AI_MODEL_SMART` / `AI_MODEL_FAST` (e `platform_settings`). **Nunca fixar nome de modelo no código.** Consultar a doc atual da Anthropic para IDs e para a ferramenta de busca na web do lado do servidor.
+- **IA:** provedor a confirmar (DEC-013); PRD indica `@anthropic-ai/sdk`. Modelos via `AI_MODEL_SMART` / `AI_MODEL_FAST` (e `platform_settings`). **Nunca fixar nome de modelo no código.** Consultar a doc atual da Anthropic para IDs e para a ferramenta de busca na web do lado do servidor.
 - **Testes:** Vitest (regras puras + RLS), Playwright (cenário do marco).
 - Gerenciador de pacotes: **pnpm**. Node 22.
 

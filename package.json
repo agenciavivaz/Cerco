@@ -1,0 +1,65 @@
+{
+  "name": "cerco",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^6.0.0",
+    "@sentry/nextjs": "^11.8.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
+    "@tanstack/react-table": "^8.21.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "cn": "^0.5.0",
+    "lucide-react": "^1.61.0",
+    "next": "15.5.28",
+    "next-themes": "^0.4.6",
+    "posthog-js": "^1.438.13",
+    "posthog-node": "^5.56.4",
+    "radix-ui": "^1.8.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.90.0",
+    "server-only": "^0.0.1",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^5.0.5",
+    "dotenv": "^18.0.8",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.28",
+    "prettier": "^3.9.10",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "shadcn": "^4.22.1",
+    "supabase": "^2.121.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "tw-animate-css": "^1.4.0",
+    "typescript": "^5",
+    "vitest": "^5.0.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "supabase",
+      "@sentry/cli",
+      "unrs-resolver",
+      "sharp",
+      "esbuild"
+    ]
+  }
+}

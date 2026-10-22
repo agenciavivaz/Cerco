@@ -31,7 +31,7 @@ export function TextField<T extends FieldValues>({
         <FormItem className={className}>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input {...input} {...field} value={field.value ?? ''} />
+            <Input {...field} {...input} value={field.value ?? ''} />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
@@ -57,7 +57,7 @@ export function TextareaField<T extends FieldValues>({
         <FormItem className={className}>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Textarea {...input} {...field} value={field.value ?? ''} />
+            <Textarea {...field} {...input} value={field.value ?? ''} />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />

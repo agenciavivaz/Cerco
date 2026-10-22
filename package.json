@@ -4,9 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "test": "vitest run --project unit",
+    "test:rls": "vitest run --project rls",
+    "e2e": "playwright test",
+    "db:start": "supabase start -x studio,imgproxy,edge-runtime,logflare,vector,supavisor",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:new": "supabase migration new",
+    "db:push": "supabase db push",
+    "db:types": "supabase gen types typescript --local > lib/supabase/database.types.ts",
+    "seed:demo": "tsx scripts/seed-demo.ts",
+    "admin:bootstrap": "tsx scripts/admin-bootstrap.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^6.0.0",
